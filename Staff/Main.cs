@@ -1,4 +1,5 @@
-﻿using Staff.Data.Models;
+﻿using Microsoft.Reporting.WinForms;
+using Staff.Data.Models;
 using Staff.Data.Repository;
 using System;
 using System.Collections.Generic;
@@ -42,7 +43,17 @@ namespace Staff
 
         private void report_Click(object sender, EventArgs e)
         {
-            
+            ReportDataSource rs = new ReportDataSource();
+            List<Employee> staff = new List<Employee>();
+            staff.AddRange(_staff);
+            rs.Name = "DataSet1";
+            rs.Value = staff;
+            Report report = new Report();
+            report.reportViewer1.LocalReport.DataSources.Clear();
+            report.reportViewer1.LocalReport.DataSources.Add(rs);
+            report.reportViewer1.LocalReport.ReportEmbeddedResource = "Staff.Report.rdlc";
+
+            report.ShowDialog();
         }
         internal void refreshRecords()
         {
@@ -53,6 +64,11 @@ namespace Staff
                 _staff.AddRange(staff);
                 BSStaff.ResetBindings(false);
             }
+        }
+
+        private void sortByPosition_Click(object sender, EventArgs e)
+        {
+            BSStaff.DataSource = _staff.OrderBy(a => a.Position);
         }
     }
 }

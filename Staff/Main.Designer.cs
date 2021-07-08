@@ -66,6 +66,7 @@ namespace Staff
             this.sortByPosition.TabIndex = 8;
             this.sortByPosition.Text = "Отсортировать по должности";
             this.sortByPosition.UseVisualStyleBackColor = true;
+            this.sortByPosition.Click += new System.EventHandler(this.sortByPosition_Click);
             // 
             // panel2
             // 
