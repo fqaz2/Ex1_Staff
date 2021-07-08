@@ -35,18 +35,18 @@ namespace Staff
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.BSStaff = new System.Windows.Forms.BindingSource(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
             this.report = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.refresh = new System.Windows.Forms.Button();
             this.delete = new System.Windows.Forms.Button();
             this.add = new System.Windows.Forms.Button();
-            this.BSStaff = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BSStaff)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -104,7 +104,7 @@ namespace Staff
             // panel3
             // 
             this.panel3.Controls.Add(this.report);
-            this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this.refresh);
             this.panel3.Controls.Add(this.delete);
             this.panel3.Controls.Add(this.add);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
@@ -121,15 +121,17 @@ namespace Staff
             this.report.TabIndex = 7;
             this.report.Text = "Отчет";
             this.report.UseVisualStyleBackColor = true;
+            this.report.Click += new System.EventHandler(this.report_Click);
             // 
-            // button1
+            // refresh
             // 
-            this.button1.Location = new System.Drawing.Point(6, 93);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(131, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Обновить";
-            this.button1.UseVisualStyleBackColor = true;
+            this.refresh.Location = new System.Drawing.Point(6, 93);
+            this.refresh.Name = "refresh";
+            this.refresh.Size = new System.Drawing.Size(131, 23);
+            this.refresh.TabIndex = 6;
+            this.refresh.Text = "Обновить";
+            this.refresh.UseVisualStyleBackColor = true;
+            this.refresh.Click += new System.EventHandler(this.refresh_Click);
             // 
             // delete
             // 
@@ -139,6 +141,7 @@ namespace Staff
             this.delete.TabIndex = 5;
             this.delete.Text = "Удалить сотрудника";
             this.delete.UseVisualStyleBackColor = true;
+            this.delete.Click += new System.EventHandler(this.delete_Click);
             // 
             // add
             // 
@@ -148,6 +151,7 @@ namespace Staff
             this.add.TabIndex = 4;
             this.add.Text = "Добавить сотрудника";
             this.add.UseVisualStyleBackColor = true;
+            this.add.Click += new System.EventHandler(this.add_Click);
             // 
             // Main
             // 
@@ -157,7 +161,6 @@ namespace Staff
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Staff";
@@ -165,8 +168,8 @@ namespace Staff
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.BSStaff)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -177,13 +180,13 @@ namespace Staff
         private System.Windows.Forms.Button sortByPosition;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button report;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button refresh;
         private System.Windows.Forms.Button delete;
         private System.Windows.Forms.Button add;
-        private System.Windows.Forms.BindingSource BSStaff;
+        internal System.Windows.Forms.BindingSource BSStaff;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 
