@@ -29,21 +29,24 @@ namespace Staff
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.sortByPosition = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.report = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.delete = new System.Windows.Forms.Button();
             this.add = new System.Windows.Forms.Button();
-            this.sortByPosition = new System.Windows.Forms.Button();
+            this.BSStaff = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BSStaff)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -55,6 +58,15 @@ namespace Staff
             this.panel1.Size = new System.Drawing.Size(800, 32);
             this.panel1.TabIndex = 0;
             // 
+            // sortByPosition
+            // 
+            this.sortByPosition.Location = new System.Drawing.Point(12, 3);
+            this.sortByPosition.Name = "sortByPosition";
+            this.sortByPosition.Size = new System.Drawing.Size(179, 23);
+            this.sortByPosition.TabIndex = 8;
+            this.sortByPosition.Text = "Отсортировать по должности";
+            this.sortByPosition.UseVisualStyleBackColor = true;
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.panel4);
@@ -64,18 +76,6 @@ namespace Staff
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(800, 418);
             this.panel2.TabIndex = 1;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.report);
-            this.panel3.Controls.Add(this.button1);
-            this.panel3.Controls.Add(this.delete);
-            this.panel3.Controls.Add(this.add);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(656, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(144, 418);
-            this.panel3.TabIndex = 0;
             // 
             // panel4
             // 
@@ -90,7 +90,9 @@ namespace Staff
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.DataSource = this.BSStaff;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
@@ -98,6 +100,18 @@ namespace Staff
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(656, 418);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.report);
+            this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this.delete);
+            this.panel3.Controls.Add(this.add);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel3.Location = new System.Drawing.Point(656, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(144, 418);
+            this.panel3.TabIndex = 0;
             // 
             // report
             // 
@@ -135,15 +149,6 @@ namespace Staff
             this.add.Text = "Добавить сотрудника";
             this.add.UseVisualStyleBackColor = true;
             // 
-            // sortByPosition
-            // 
-            this.sortByPosition.Location = new System.Drawing.Point(12, 3);
-            this.sortByPosition.Name = "sortByPosition";
-            this.sortByPosition.Size = new System.Drawing.Size(179, 23);
-            this.sortByPosition.TabIndex = 8;
-            this.sortByPosition.Text = "Отсортировать по должности";
-            this.sortByPosition.UseVisualStyleBackColor = true;
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -158,9 +163,10 @@ namespace Staff
             this.Text = "Staff";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.BSStaff)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -177,6 +183,7 @@ namespace Staff
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button delete;
         private System.Windows.Forms.Button add;
+        private System.Windows.Forms.BindingSource BSStaff;
     }
 }
 
